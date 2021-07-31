@@ -2,7 +2,7 @@
  * File Created: Saturday, 31st July 2021 12:20:18 pm
  * Author: Bruno Oliveira (bruno.oliveira@zappts.com)
  * -----
- * Last Modified: Saturday, 31st July 2021 3:22:24 pm
+ * Last Modified: Saturday, 31st July 2021 3:49:38 pm
  * Modified By: Bruno Oliveira (bruno.oliveira@zappts.com)
  * -----
  * Copyright 2021 - Cartões ADD, Porto Seguro
@@ -11,6 +11,15 @@
 import React, { useEffect, useState } from 'react';
 import { BackHandler } from 'react-native';
 
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 import LottieView from 'lottie-react-native';
 import styled from 'styled-components/native';
 
@@ -27,6 +36,14 @@ const Container = styled.View`
 
 const Routes: React.FC = () => {
   const [splashTime, setSplashTime] = useState(true);
+  const [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', () => true);
@@ -39,7 +56,7 @@ const Routes: React.FC = () => {
     setSplashTime(false);
   }, 4000);
 
-  if (splashTime) {
+  if (splashTime || !fontsLoaded) {
     return (
       <Container>
         <LottieView source={SplashAnimation} autoPlay />

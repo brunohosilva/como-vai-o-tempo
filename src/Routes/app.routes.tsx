@@ -2,7 +2,7 @@
  * File Created: Saturday, 31st July 2021 12:20:08 pm
  * Author: Bruno Oliveira (bruno.oliveira@zappts.com)
  * -----
- * Last Modified: Saturday, 31st July 2021 1:39:23 pm
+ * Last Modified: Saturday, 31st July 2021 3:26:29 pm
  * Modified By: Bruno Oliveira (bruno.oliveira@zappts.com)
  * -----
  * Copyright 2021 - Cartões ADD, Porto Seguro
@@ -22,8 +22,8 @@ const App = createStackNavigator();
 const AppRoutes: React.FC = () => {
   return (
     <App.Navigator>
-      <App.Screen name="Home" component={Views.Home} />
       <App.Screen name="Today" component={Views.Today} />
+      <App.Screen name="Tomorrow" component={Views.Tomorrow} />
     </App.Navigator>
   );
 };
